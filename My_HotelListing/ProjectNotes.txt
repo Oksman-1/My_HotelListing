@@ -1,0 +1,199 @@
+                                                          SCRAP NOTES
+=================================================================================================================================
+---------------------------------------------------------------------------------------------------------------------------------
+=================================================================================================================================
+
+
+ENTITIES
+=========
+=========
+public class Country
+{
+	public int Id { get; set; }
+	public string? Name { get; set; }
+	public string? ShortName { get; set; }
+	public virtual IList<Hotel>? Hotels { get; set;}
+
+}
+
+public class Hotel
+{
+	public int Id { get; set; }
+	public string? Name { get; set; }
+	public string? Address { get; set; }
+	public double Rating { get; set; }
+
+	[ForeignKey(nameof(Country))]
+	public int CountryId { get; set; }
+	public Country? Country { get; set; }
+}
+
+
+
+SERILOG PATH
+==============
+==============
+C:\Users\Oks\CODEBASE\My_JS\C#\C# PROJECTS\ISLANDman\My_HotelListing\My_HotelListing\logs\log--.txt
+
+C:\Users\Oks\CODEBASE\My_JS\C#\C# PROJECTS\ISLANDman\My_HotelListing\My_HotelListing\bin\Debug\net6.0\Logs\log-.txt
+
+C:\\Users\\Oks\\CODEBASE\\My_JS\\C#\\C# PROJECTS\\ISLANDman\\My_HotelListing\\My_HotelListing\\
+
+
+
+
+QUICK LINKS
+==============
+==============
+https://localhost:5001/api/countries
+
+https://localhost:5001/api/countries/8/hotels
+
+https://localhost:5001/api/countries/10/hotels/6
+
+https://localhost:5001/api/countries/8/hotels?pageNumber=2&pageSize=2
+
+
+POST RESOURCE
+==============
+==============
+A single Country
+-----------------
+{
+	"Name": "South Africa",
+	"ShortName": "SA"	
+}
+
+
+
+A single Hotel
+----------------
+{
+	"Name": "Waldorf Historia",
+	"Address": "Washington DC",
+	"Rating": "4.9"
+}
+
+
+Countries with hotel collection
+--------------------------------
+{
+	"Name": "China",
+	"ShortName": "CHN",
+	"Hotels": [
+		{
+	      "Name": "China World Hotel",
+	      "Address": "Beijing",
+	      "Rating": "4.3"
+        },
+        {
+	      "Name": "New World Beijing Hotel",
+	      "Address": "Beijing",
+	      "Rating": "4.8"
+        },
+        {
+	      "Name": "China Hotel",
+	      "Address": "Guangzhou",
+	      "Rating": "4.7"
+        }
+   ]
+}
+
+
+
+Array of Countries
+-------------------
+[
+    {
+        "Name": "Tanzania",
+        "ShortName": "TZ"	
+    },
+    {
+        "Name": "Niger",
+        "ShortName": "NI"	
+    },
+    {
+        "Name": "Italy",
+        "ShortName": "IT"	
+    },
+    {
+        "Name": "France",
+        "ShortName": "FR"	
+    },
+    {
+        "Name": "Estonia",
+        "ShortName": "Es"	
+    },
+    {
+        "Name": "India",
+        "ShortName": "IN"	
+    },
+    {
+        "Name": "Finland",
+        "ShortName": "FL"	
+    },
+    {
+        "Name": "South Korea",
+        "ShortName": "SK"	
+    },
+    {
+        "Name": "Uzbekistan",
+        "ShortName": "UZ"	
+    },
+    {
+        "Name": "Austria",
+        "ShortName": "AS"	
+    },
+    {
+        "Name": "Egypt",
+        "ShortName": "EGT"	
+    },
+    {
+        "Name": "Romania",
+        "ShortName": "RM"	
+    },
+    {
+        "Name": "Switzerland",
+        "ShortName": "SW"	
+    },
+    {
+        "Name": "Philippines",
+        "ShortName": "PS"	
+    },
+    {
+        "Name": "Bulgaria",
+        "ShortName": "BUL"	
+    },
+    {
+        "Name": "Greece",
+        "ShortName": "GC"	
+    },
+    {
+        "Name": "Iceland",
+        "ShortName": "ICL"	
+    },
+    {
+        "Name": "Belgium",
+        "ShortName": "BG"	
+    },
+    {
+        "Name": "Belize",
+        "ShortName": "BZ"	
+    },
+    {
+        "Name": "New Zealand",
+        "ShortName": "NZ"	
+    },
+    {
+        "Name": "Morocco",
+        "ShortName": "MC"	
+    }
+]
+
+
+
+
+SQL SCRIPTS
+============
+============
+DELETE FROM Countries WHERE Id = 6;
